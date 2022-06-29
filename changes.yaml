@@ -1,0 +1,21 @@
+- file:
+    name: netbox/models/ip_address.go
+    before:
+        - AssignedObject map[string]*string `json:"assigned_object,omitempty"`
+    after:
+        - AssignedObject map[string]interface{} `json:"assigned_object,omitempty"`
+    associated error:
+        - json: cannot unmarshal number into Go struct field IPAddress.results.assigned_object of type string
+
+- file:
+    name: netbox/models/device_with_config.context.go
+    before:
+        - ConfigContext map[string]*string `json:"config_context,omitempty"`
+        - LocalContextData *string `json:"local_context_data,omitempty"`
+    after:
+        - ConfigContext *ConfigContext `json:"config_context,omitempty"`
+        - LocalContextData map[string]interface{} `json:"local_context_data,omitempty"`
+    associated error:
+        - null
+
+- file:

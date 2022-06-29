@@ -1,0 +1,12 @@
+*.exe
+/.idea
+.vscode
+*.swp
+*.yaml
+*.yml
+*.log
+.env
+/bin
+./nbcli
+!changes.yaml
+temp.go
